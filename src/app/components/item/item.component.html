@@ -1,0 +1,31 @@
+<div class="container">
+    
+    <mat-card class="product" (mousedown)="onSelectItem(item)" [ngClass]="{ selected: item.selected == true}">
+        <mat-card-content >
+            <div class="image">
+                <img src='{{item.image}}' alt='imagen'>
+            </div>
+        
+            <div class="data">
+                <div class="name">
+                    {{item.name}}
+                </div>
+                <div class="description">
+                    {{item.description}}
+                </div>
+            </div>
+        
+            <div class="price">
+                {{item.price | currency}}
+            </div>
+    
+            <div *ngIf="item.selected" class="quantity" (click)="$event.stopPropagation()">
+                <mat-icon (mousedown)="remQnty(item)">remove_circle</mat-icon>
+                <label for="Qnty">{{item.quantity}}</label>
+                <mat-icon (click)="addQnty(item)">add_circle</mat-icon>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

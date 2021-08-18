@@ -1,0 +1,21 @@
+<!-- Toolbar -->
+<div class="toolbar">
+    <mat-toolbar class="categories-bar">
+        <div *ngFor="let category of categories" class="categories-buttons">
+            <button [ngClass]="{'category-selected': category == currentCategory}" 
+                class="category-button" (click)="selectCategory(category)">
+                {{category}}
+            </button>
+        </div>
+    </mat-toolbar>
+</div>
+
+
+<!-- Items -->
+<div fxLayout="row wrap" style="margin-top: 10px; margin-bottom: 70px;">
+    <app-item fxFlex.gt-sm="33%" fxFlex.gt-xs="50%" fxFlex="50%"
+        *ngFor="let item of items"
+        [item]="item"        
+    >
+    </app-item>
+</div>

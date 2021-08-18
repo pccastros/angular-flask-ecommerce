@@ -1,0 +1,47 @@
+.categories-bar{
+    background-color: black;
+    padding: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.toolbar{
+    position: sticky;
+    top: 56px;
+    z-index: 1000;
+}
+
+.categories-bar::-webkit-scrollbar{
+    display: none;
+  }
+
+.categories-buttons{
+    height: 100%; 
+    align-items: center; 
+    display: flex;
+}
+
+.category-button{
+    width: auto;
+    font-size: 15px;
+    margin: 10px 10px;
+    background-color: black;
+    color: white;
+    height: 66%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.category-selected{
+    width: auto;
+    font-size: 15px;
+    margin: 10px 10px;
+    background-color: white;
+    color: black;
+    height: 66%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+}

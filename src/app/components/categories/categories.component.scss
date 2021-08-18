@@ -1,0 +1,22 @@
+.category{  
+    border-radius: 10px;
+    text-align: center;
+    font-size: 17px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+    width: 75%;
+    //height: 60px;
+    //overflow-wrap: break-word;
+    white-space: pre-wrap !important;
+}
+
+.category:hover{
+    background-color: #5868c5;
+    //font-size: 16px;
+}
+
+.buttons{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
