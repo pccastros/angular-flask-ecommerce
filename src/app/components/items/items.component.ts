@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from '../../models/items';
-import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -10,23 +9,24 @@ import { ItemService } from '../../services/item.service';
 
 export class ItemsComponent implements OnInit {
 
-  items: Item[] = [];
-  categories: string[] = [];
-  currentCategory: string = '';
+  //currentCategory: string = '';
   totalPrice = 0;
   totalQnty = 0;
 
-  constructor( private itemService: ItemService) { }
+  @Input() items: Item[] = [];
+  @Input() categories:string[] = [];
+  @Input() currentCategory:string = '';
+  @Output() onSelectCategory:EventEmitter<Item> = new EventEmitter()
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.items = this.itemService.getCurrentItems();
-    this.categories = this.itemService.getCategories();
+    console.log(this.items)
   }
 
   selectCategory(category){
     this.currentCategory = category;
-    this.itemService.onSelectCategory(category);
-    this.items = this.itemService.getCurrentItems();
+    this.onSelectCategory.emit(category);
   }
 
 }

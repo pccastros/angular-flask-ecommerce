@@ -17,15 +17,15 @@ export class ItemComponent implements OnInit {
   }
 
   onSelectItem(item:Item){
-    this.itemService.onSelect(item);
+    //this.itemService.onSelect(item);
   }
 
   addQnty(item:Item){
-    this.itemService.addQuantity(item);
+    //this.itemService.addQuantity(item);
   }
 
   remQnty(item:Item){
-    this.itemService.removeQuantity(item);
+    //this.itemService.removeQuantity(item);
   }
 
 }

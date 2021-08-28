@@ -1,10 +1,32 @@
 <div>
   <app-header></app-header>
-  <app-categories *ngIf="screen == 0" (nextScreen)="nextScreen($event)"></app-categories>
 
-  <app-items *ngIf="screen == 1"></app-items>
+  <!-- CATEGORIES -->
+  <app-categories *ngIf="screen == 0" 
+    [categories]="categories"
+    (onSelectCategory)="onSelectCategory($event)"
+    (nextScreen)="nextScreen($event)">
+  </app-categories>
+
+  <!-- ITEMS -->
+  <app-items *ngIf="screen == 1"
+    [items]="currentItems"
+    [categories]="categories"
+    [currentCategory]="currentCategory"
+    (onSelectCategory)="onSelectCategory($event)">
+  </app-items>
+
+  <!-- TOTAL -->
+  <!--
   <app-total *ngIf="screen == 1" 
       [total]="this.itemService.getTotal()"
       (nextScreen)="nextScreen($event)" 
-      (prevScreen)="prevScreen($event)"></app-total>
+      (prevScreen)="prevScreen($event)">
+  </app-total>
+-->
+<app-total *ngIf="screen == 1" 
+(nextScreen)="nextScreen($event)" 
+(prevScreen)="prevScreen($event)">
+</app-total>
+
 </div>

@@ -1,6 +1,6 @@
 <div fxLayout="row wrap">
     <div *ngFor="let category of categories" class="buttons" fxFlex="33%">
-        <button mat-raised-button color="primary" class="category" (click)="onSelect(category)">
+        <button mat-raised-button color="primary" class="category" (mousedown)="onSelect(category)">
             <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
             <div>
                 {{category}}

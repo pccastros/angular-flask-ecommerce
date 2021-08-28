@@ -7,23 +7,17 @@ import { ItemService } from 'src/app/services/item.service';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent {
 
-
+  @Input() categories:string[] = [];
   @Output() nextScreen:EventEmitter<any> = new EventEmitter();
-  @Output() prevScreen:EventEmitter<any> = new EventEmitter();
-
-  categories: string[] = [];
+  @Output() onSelectCategory:EventEmitter<Item> = new EventEmitter()
 
   constructor( private itemService: ItemService) { }
 
-  ngOnInit(): void {
-    this.categories = this.itemService.getCategories();
-  }
-
   onSelect(category){
     this.nextScreen.emit();
-    this.itemService.onSelectCategory(category);
+    this.onSelectCategory.emit(category);
   }
   
 }
