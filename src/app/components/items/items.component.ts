@@ -17,6 +17,9 @@ export class ItemsComponent implements OnInit {
   @Input() categories:string[] = [];
   @Input() currentCategory:string = '';
   @Output() onSelectCategory:EventEmitter<Item> = new EventEmitter()
+  @Output() onSelectItem:EventEmitter<Item> = new EventEmitter()
+  @Output() onAddQuantity:EventEmitter<Item> = new EventEmitter()
+  @Output() onRemoveQuantity:EventEmitter<Item> = new EventEmitter()
 
   constructor() { }
 
@@ -27,6 +30,18 @@ export class ItemsComponent implements OnInit {
   selectCategory(category){
     this.currentCategory = category;
     this.onSelectCategory.emit(category);
+  }
+
+  selectItem(category){
+    this.onSelectItem.emit(category);
+  }
+
+  addQuantity(category){
+    this.onAddQuantity.emit(category);
+  }
+
+  removeQuantity(category){
+    this.onRemoveQuantity.emit(category);
   }
 
 }

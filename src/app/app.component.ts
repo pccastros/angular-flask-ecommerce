@@ -45,17 +45,55 @@ export class AppComponent {
   }
 
   onSelectItem(item:Item){
-    item.selected = !item.selected;
-    console.log("Total")
-   
-    if (item.selected){
-      item.quantity = 1;
+
+    let idx = this.items.findIndex((it => it.id == item.id));
+    let state = this.items[idx].selected
+    let newState = !state
+    this.items[idx].selected = newState
+
+    if (newState){
+      this.items[idx].quantity = 1;
     }else{
-      item.quantity = 0;
+      this.items[idx].quantity = 0;
     }
 
-    //this.getTotal();
   }
+
+  getTotal(){
+    this.total = this.items
+                  .filter(item => item.selected == true)
+                  .map(item => item.price * item.quantity)
+                  .reduce( (acc, item) => acc += item, 0)                     
+    return this.total
+  }
+
+  getQuantity(){
+    this.quantity = this.items
+                    .filter(item => item.selected == true)
+                    .map(item => item.quantity)
+                    .reduce( (acc, item) => acc += item, 0)
+
+    return this.quantity
+  }
+
+  onAddQuantity(item:Item){
+    let idx = this.items.findIndex((it => it.id == item.id));
+    this.items[idx].quantity += 1;
+  }
+
+  onRemoveQuantity(item:Item){
+
+    let idx = this.items.findIndex((it => it.id == item.id));
+
+    if (this.items[idx].quantity > 0){
+      this.items[idx].quantity -= 1;
+
+      if (this.items[idx].quantity == 0){
+        this.onSelectItem(item);
+      }
+    }
+  }
+
 
 
   nextScreen(){

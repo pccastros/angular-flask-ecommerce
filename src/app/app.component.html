@@ -1,5 +1,10 @@
 <div>
-  <app-header></app-header>
+
+  <!-- HEADER -->
+  <app-header
+    [quantity]="getQuantity()">
+  </app-header>
+
 
   <!-- CATEGORIES -->
   <app-categories *ngIf="screen == 0" 
@@ -13,20 +18,23 @@
     [items]="currentItems"
     [categories]="categories"
     [currentCategory]="currentCategory"
-    (onSelectCategory)="onSelectCategory($event)">
+    (onSelectCategory)="onSelectCategory($event)"
+    (onSelectItem)="onSelectItem($event)"
+    (onAddQuantity)="onAddQuantity($event)"
+    (onRemoveQuantity)="onRemoveQuantity($event)">
   </app-items>
 
   <!-- TOTAL -->
-  <!--
   <app-total *ngIf="screen == 1" 
-      [total]="this.itemService.getTotal()"
-      (nextScreen)="nextScreen($event)" 
-      (prevScreen)="prevScreen($event)">
+    [total]="getTotal()"
+    (nextScreen)="nextScreen($event)" 
+    (prevScreen)="prevScreen($event)">
   </app-total>
--->
-<app-total *ngIf="screen == 1" 
-(nextScreen)="nextScreen($event)" 
-(prevScreen)="prevScreen($event)">
-</app-total>
+
+  <!-- CUSTOMER -->
+  <app-customer *ngIf="screen == 2">
+
+  </app-customer>
+
 
 </div>

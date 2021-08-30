@@ -15,6 +15,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule} from '@angular/common/http';
+import { CustomerComponent } from './components/customer/customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { HttpClientModule} from '@angular/common/http';
     ItemsComponent,
     ItemComponent,
     CategoriesComponent,
-    TotalComponent
+    TotalComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

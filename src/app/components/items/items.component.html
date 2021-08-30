@@ -15,7 +15,9 @@
 <div fxLayout="row wrap" style="margin-top: 10px; margin-bottom: 70px;">
     <app-item fxFlex.gt-sm="33%" fxFlex.gt-xs="50%" fxFlex="50%"
         *ngFor="let item of items"
-        [item]="item"        
-    >
+        [item]="item"
+        (selectItem)="selectItem($event)"
+        (addQuantity)="addQuantity($event)"
+        (removeQuantity)="removeQuantity($event)">
     </app-item>
 </div>

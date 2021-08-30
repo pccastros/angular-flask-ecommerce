@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/models/items';
 import { ItemService } from 'src/app/services/item.service';
 
@@ -10,6 +10,9 @@ import { ItemService } from 'src/app/services/item.service';
 export class ItemComponent implements OnInit {
 
   @Input() item: Item = new Item();
+  @Output() selectItem:EventEmitter<Item> = new EventEmitter()
+  @Output() addQuantity:EventEmitter<Item> = new EventEmitter()
+  @Output() removeQuantity:EventEmitter<Item> = new EventEmitter()
 
   constructor( private itemService:ItemService) { }
 
@@ -17,15 +20,15 @@ export class ItemComponent implements OnInit {
   }
 
   onSelectItem(item:Item){
-    //this.itemService.onSelect(item);
+    this.selectItem.emit(item)
   }
 
   addQnty(item:Item){
-    //this.itemService.addQuantity(item);
+    this.addQuantity.emit(item)
   }
 
   remQnty(item:Item){
-    //this.itemService.removeQuantity(item);
+    this.removeQuantity.emit(item)
   }
 
 }

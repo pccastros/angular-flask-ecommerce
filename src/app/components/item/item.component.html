@@ -1,6 +1,6 @@
 <div class="container">
     
-    <mat-card class="product" (mousedown)="onSelectItem(item)" [ngClass]="{ selected: item.selected == true}">
+    <mat-card class="product" (click)="onSelectItem(item)" [ngClass]="{ selected: item.selected == true}">
         <mat-card-content >
             <div class="image">
                 <img src='{{item.image}}' alt='imagen'>

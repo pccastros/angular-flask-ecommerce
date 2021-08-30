@@ -17,6 +17,7 @@ export class TotalComponent implements OnInit {
 
   ngOnInit(): void {
     //this.total = this.itemService.getTotal();
+    console.log(this.total)
   }
 
   onNext(){
