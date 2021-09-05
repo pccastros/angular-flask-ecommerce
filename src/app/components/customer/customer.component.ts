@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { FormBuilder, Validators } from '@angular/forms';
 import { Customer } from 'src/app/models/models';
 
 @Component({

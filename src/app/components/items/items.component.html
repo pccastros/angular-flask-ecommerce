@@ -1,5 +1,5 @@
 <!-- Toolbar -->
-<div class="toolbar">
+<div class="toolbar" class="container">
     <mat-toolbar class="categories-bar">
         <div *ngFor="let category of categories" class="categories-buttons">
             <button [ngClass]="{'category-selected': category == currentCategory}" 
@@ -12,7 +12,7 @@
 
 
 <!-- Items -->
-<div fxLayout="row wrap" style="margin-top: 10px; margin-bottom: 70px;">
+<div fxLayout="row wrap" class="container" style="margin: 10px auto 70px auto;" >
     <app-item fxFlex.gt-sm="33%" fxFlex.gt-xs="50%" fxFlex="50%"
         *ngFor="let item of items"
         [item]="item"

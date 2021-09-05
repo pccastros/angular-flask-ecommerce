@@ -1,23 +1,19 @@
-<mat-card class="container">
-
-    <!--
-    <div>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-    </div>
-    -->
-    <div fxFlex="100" style="font-size: 25px; font-weight: bolder;">
-        {{total.toFixed(2) | currency}} 
-    </div>
-
-    <div fxFlex="50">
-        <div (click)="onBack()" class="buttons2">
-            <mat-icon>keyboard_arrow_left</mat-icon> 
-            <span>Back</span>
+<div class="total">
+    <mat-card class="container">
+        <div fxFlex="100" style="font-size: 25px; font-weight: bolder;">
+            {{total.toFixed(2) | currency}}
         </div>
-    </div>
 
-    <div fxFlex="50">
-        <button (click)="onNext()" class="buttons">Next</button>
-    </div>
+        <div fxFlex="50">
+            <div (click)="onBack()" class="buttons2">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+                <span>Back</span>
+            </div>
+        </div>
 
-</mat-card>
+        <div fxFlex="50">
+            <button (click)="onNext()" class="buttons">Next</button>
+        </div>
+
+    </mat-card>
+</div>

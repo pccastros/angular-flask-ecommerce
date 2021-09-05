@@ -19,6 +19,11 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +45,11 @@ import { FormsModule }   from '@angular/forms';
     MatToolbarModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
