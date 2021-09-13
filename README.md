@@ -8,7 +8,7 @@ This project is a basic Ecommerce with `Angular` frontend and `Python - Flask` b
 To create a new python virtual environment use these commans:
 
 ```sh
-pip -m venv env # Create a virtual env
+python -m venv env # Create a virtual env
 source backend/env/bin/activate # activate virtual env
 ```
 
