@@ -3,7 +3,7 @@ import os
 from flask import jsonify, request, json
 from app import app
 
-
+orders = []
 
 @app.route('/hello', methods=['GET'])
 def hello():
@@ -19,18 +19,27 @@ def getProducts():
     return json.dumps(data), 200
 
 
+@app.route('/createOrder', methods=['POST'])
+def createOrder():
 
-'''
-@app.route('/getUsers', methods=['GET'])
-def getUsers():
+    # Validate JSON format
+    if request.is_json:
+        data = request.get_json()
+        print(data)
+        order = {
+            'customer': data['customer'],
+            'items': data['items']
+        }
+        orders.append(order)
+        res = jsonify({'msg': 'Order created successfully'})
+        return res
 
-    users = User.query.all()
-    res = jsonify([
-        {
-            "name": u.name,
-            "phone": u.phone,
-            "age": u.age
-        } for u in users]
-    )
-    return res, 200
-'''
+    # Invalid JSON format
+    else:
+        return {"msg": "Invalid JSON format"}
+
+
+@app.route('/getOrders', methods=['GET'])
+def getOrders():
+    return json.dumps(orders), 200
+

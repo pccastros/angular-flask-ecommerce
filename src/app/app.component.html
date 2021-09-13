@@ -1,10 +1,9 @@
 <div>
-
+  
   <!-- HEADER -->
   <app-header
     [quantity]="getQuantity()">
   </app-header>
-
 
   <!-- CATEGORIES -->
   <app-categories *ngIf="screen == 0" 
@@ -32,8 +31,9 @@
   </app-total>
 
   <!-- CUSTOMER -->
-  <app-customer *ngIf="screen == 2">
-
+  <app-customer *ngIf="screen == 2"
+    [total]="getTotal()"
+    [items]="getSelectecItems()">
   </app-customer>
 
 

@@ -1,6 +1,6 @@
 
 form {
-    padding-top: 1rem;
+    padding-top: 0;
     margin: auto 10px;
   }
   
@@ -39,3 +39,10 @@ form {
     border-left: 5px solid #a94442; /* red */
   }
   
+  table {
+    width: 100%;
+  }
+
+  tr.mat-footer-row {
+    font-weight: bold;
+  }

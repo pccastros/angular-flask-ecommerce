@@ -7,22 +7,34 @@ import { HeaderComponent } from './components/header/header.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemComponent } from './components/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { FlexLayoutModule} from '@angular/flex-layout';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { TotalComponent } from './components/total/total.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule} from '@angular/material/icon';
+import { MatButtonModule} from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule} from '@angular/common/http';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {Ng2TelInputModule} from 'ng2-tel-input';
+
+import {MatTableModule} from '@angular/material/table';
+import { OrdersComponent } from './components/orders/orders.component';
+
+const materialModules = [
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatFormFieldModule,
+  MatInputModule
+];
 
 @NgModule({
   declarations: [
@@ -32,7 +44,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ItemComponent,
     CategoriesComponent,
     TotalComponent,
-    CustomerComponent
+    CustomerComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +59,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-
+    materialModules,
+    Ng2TelInputModule,
+    MatTableModule
+  ],
+  exports: [
+    materialModules
   ],
   providers: [],
   bootstrap: [AppComponent]

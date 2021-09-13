@@ -34,6 +34,10 @@ export class AppComponent {
     return this.currentItems
   }
 
+  getSelectecItems(){
+    return this.items.filter(item => item.selected == true);
+  }
+
   getCategories(){
     let categories = Array.from(new Set(this.items.map(item => item.category)));
     return categories
