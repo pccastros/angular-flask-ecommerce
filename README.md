@@ -14,6 +14,12 @@ source backend/env/bin/activate # activate virtual env
 
 and for deactivate the venvironment run `deactivate`
 
+To install packages
+```sh
+npm i # node dependencies
+pip install -r requirements.py # python dependencies
+```
+
 ## Test Project
 
 First clone the repo with `git clone`.
