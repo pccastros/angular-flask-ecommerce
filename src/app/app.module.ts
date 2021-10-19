@@ -3,19 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ItemsComponent } from './components/items/items.component';
-import { ItemComponent } from './components/item/item.component';
+import { HeaderComponent } from './header/header.component';
+import { ItemsComponent } from './shop/items/items.component';
+import { ItemComponent } from './shop/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule} from '@angular/flex-layout';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { TotalComponent } from './components/total/total.component';
+import { CategoriesComponent } from './shop/categories/categories.component';
+import { TotalComponent } from './shop/total/total.component';
 import { MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule} from '@angular/common/http';
-import { CustomerComponent } from './components/customer/customer.component';
+import { CustomerComponent } from './shop/customer/customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 
@@ -27,7 +27,11 @@ import { MatInputModule } from '@angular/material/input';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 
 import {MatTableModule} from '@angular/material/table';
-import { OrdersComponent } from './components/orders/orders.component';
+import { OrdersComponent } from './orders/orders.component';
+import { ShopComponent } from './shop/shop.component';
+import { DetailComponent } from './orders/detail/detail.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 const materialModules = [
   MatDatepickerModule,
@@ -45,7 +49,9 @@ const materialModules = [
     CategoriesComponent,
     TotalComponent,
     CustomerComponent,
-    OrdersComponent
+    OrdersComponent,
+    ShopComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,8 @@ const materialModules = [
     FormsModule,
     materialModules,
     Ng2TelInputModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     materialModules

@@ -57,6 +57,7 @@ export class CustomerComponent implements OnInit{
       customer: this.customerForm.value,
       items: this.items
     }
+    order.customer.date = new Date();
     this.itemService.addOrder(order).subscribe(data => {
 
     })
@@ -80,7 +81,5 @@ export class CustomerComponent implements OnInit{
   get address() { return this.customerForm.get('address')!; }
   get phone() { return this.customerForm.get('phone')!; }
   get delivery() { return this.customerForm.get('delivery')!; }
-
-
 
 }

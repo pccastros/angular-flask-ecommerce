@@ -2,11 +2,11 @@
 
     <!-- ORDER DETAILS -->
     <h1>Order details</h1>
-    <table mat-table [dataSource]="items" class="mat-elevation-z8" style="margin-bottom: 10px;">
+    <table mat-table [dataSource]="items" class="mat-elevation-z8" style="margin-bottom: 10px; text-align: center">
 
         <!-- Id Column -->
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <th style="text-align: center;" mat-header-cell *matHeaderCellDef> No. </th>
           <td mat-cell *matCellDef="let element"> {{items.indexOf(element) + 1}} </td>
           <td mat-footer-cell *matFooterCellDef> Total </td>
         </ng-container>

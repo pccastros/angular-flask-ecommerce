@@ -2,10 +2,10 @@
     <mat-toolbar class="toolbar">
         <span>AF Shop</span>
         <span class="space"></span>
-      <button mat-icon-button>
+      <button mat-icon-button [routerLink]="['/orders']">
         <mat-icon class="icon">event_note</mat-icon>
       </button>
-      <button mat-icon-button>
+      <button mat-icon-button [routerLink]="['/']">
         <mat-icon class="icon">shopping_cart</mat-icon>
         <span class="qnty"> {{quantity}}</span>
       </button>

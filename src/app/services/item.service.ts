@@ -28,5 +28,8 @@ export class ItemService {
     return this.http.post<Item>(url, data, this.httpOptions);
   }
 
-
+  getOrders(): Observable<any>{
+    let url = 'http://localhost:5000/getOrders';
+    return this.http.get<Item[]>(url);
+  }
 }

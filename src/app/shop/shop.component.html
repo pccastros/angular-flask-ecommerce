@@ -1,0 +1,40 @@
+<div>
+  
+    <!-- HEADER -->
+    <app-header
+      [quantity]="getQuantity()">
+    </app-header>
+  
+    <!-- CATEGORIES -->
+    <app-categories *ngIf="screen == 0" 
+      [categories]="categories"
+      (onSelectCategory)="onSelectCategory($event)"
+      (nextScreen)="nextScreen($event)">
+    </app-categories>
+  
+    <!-- ITEMS -->
+    <app-items *ngIf="screen == 1"
+      [items]="currentItems"
+      [categories]="categories"
+      [currentCategory]="currentCategory"
+      (onSelectCategory)="onSelectCategory($event)"
+      (onSelectItem)="onSelectItem($event)"
+      (onAddQuantity)="onAddQuantity($event)"
+      (onRemoveQuantity)="onRemoveQuantity($event)">
+    </app-items>
+  
+    <!-- TOTAL -->
+    <app-total *ngIf="screen == 1" 
+      [total]="getTotal()"
+      (nextScreen)="nextScreen($event)" 
+      (prevScreen)="prevScreen($event)">
+    </app-total>
+  
+    <!-- CUSTOMER -->
+    <app-customer *ngIf="screen == 2"
+      [total]="getTotal()"
+      [items]="getSelectecItems()">
+    </app-customer>
+  
+  
+  </div>
