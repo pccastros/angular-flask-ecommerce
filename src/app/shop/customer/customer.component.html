@@ -1,46 +1,5 @@
 <div class="container">
 
-    <!-- ORDER DETAILS -->
-    <h1>Order details</h1>
-    <table mat-table [dataSource]="items" class="mat-elevation-z8" style="margin-bottom: 10px; text-align: center">
-
-        <!-- Id Column -->
-        <ng-container matColumnDef="id">
-          <th style="text-align: center;" mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{items.indexOf(element) + 1}} </td>
-          <td mat-footer-cell *matFooterCellDef> Total </td>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-      
-        <!-- Price Column -->
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef> U. Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
-          <td mat-footer-cell *matFooterCellDef>{{getTotalCost() | currency}} </td>
-        </ng-container>
-      
-        <!-- Quantity Column -->
-        <ng-container matColumnDef="quantity">
-          <th mat-header-cell *matHeaderCellDef> Qnty </th>
-          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-          <td mat-footer-cell *matFooterCellDef> {{getTotalQuantity()}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-
-
-      </table>
-
-
-
     <!-- CUSTOMER INFO -->
     <h1 style="margin-top: 30px;">Customer Info</h1>
 
@@ -91,8 +50,8 @@
 
                     <!-- Phone -->
                     <label for="phone">Choose a delivery date</label>
-                    <input type="tel" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'in'}" 
-                    id="phone" class="form-control" formControlName="phone" required>
+                    <input type="tel" type="number" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'in'}" id="phone"
+                        class="form-control" formControlName="phone" required>
                     <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
                         <div *ngIf="phone.errors?.required">
                             Phone is required.
@@ -100,7 +59,7 @@
                         <div *ngIf="phone.errors?.minlength">
                             Address must be at least 9 characters long.
                         </div>
-                        <div *ngIf="phone.errors?.maxlenght">
+                        <div *ngIf="phone.errors.maxlength">
                             Address must have max 10 characters long.
                         </div>
                     </div>
@@ -117,8 +76,8 @@
 
             </div>
 
-            <button type="submit" class="btn btn-default" (click)="onSubmit()"
-                [disabled]="customerForm.invalid">Finish Order</button>
+            <button type="submit" class="btn btn-default" (click)="onSubmit()" [disabled]="customerForm.invalid">Finish
+                Order</button>
             <button type="button" class="btn btn-default" (click)="formDir.resetForm({})">Reset</button>
         </div>
     </form>
@@ -128,6 +87,6 @@
         <button mat-button color="primary" (click)="newOrder()">New Order</button>
 
     </div>
-    
+
 
 </div>

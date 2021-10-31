@@ -44,4 +44,5 @@ export class ItemsComponent implements OnInit {
     this.onRemoveQuantity.emit(category);
   }
 
+  
 }

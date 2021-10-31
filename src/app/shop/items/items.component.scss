@@ -4,6 +4,8 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(63,81,181,1) 0%, rgba(2,0,36,1) 100%);
 }
 
 .toolbar{
@@ -26,10 +28,11 @@
     width: auto;
     font-size: 15px;
     margin: 10px 10px;
-    background-color: black;
+    //background-color: black;
+    background-color: transparent;
     color: white;
     height: 66%;
-    border: 1px solid black;
+    border: 1px solid transparent;
     border-radius: 10px;
     padding: 5px 10px;
 }
@@ -41,7 +44,7 @@
     background-color: white;
     color: black;
     height: 66%;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 10px;
     padding: 5px 10px;
 }

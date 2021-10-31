@@ -30,10 +30,33 @@
       (prevScreen)="prevScreen($event)">
     </app-total>
   
-    <!-- CUSTOMER -->
-    <app-customer *ngIf="screen == 2"
+    <!-- FOOTER BUTTONS -->
+    <app-footer-buttons *ngIf="screen == 2" 
+      [total]="getTotal()"
+      (nextScreen)="nextScreen($event)" 
+      (prevScreen)="prevScreen($event)">
+    </app-footer-buttons>
+
+    <!-- FOOTER BACK -->
+    <app-footer-back *ngIf="screen == 3" 
+      [total]="getTotal()"
+      [finish]="getFinishState()"
+      (nextScreen)="nextScreen($event)" 
+      (prevScreen)="prevScreen($event)">
+    </app-footer-back>
+
+
+    <!-- DETAILS -->
+    <app-details *ngIf="screen == 2"
       [total]="getTotal()"
       [items]="getSelectecItems()">
+    </app-details>
+
+    <!-- CUSTOMER -->
+    <app-customer *ngIf="screen == 3"
+      [total]="getTotal()"
+      [items]="getSelectecItems()"
+      (finishOrder)="onFinishOrder($event)">
     </app-customer>
   
   

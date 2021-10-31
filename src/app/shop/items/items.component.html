@@ -2,8 +2,8 @@
 <div class="toolbar" class="container">
     <mat-toolbar class="categories-bar">
         <div *ngFor="let category of categories" class="categories-buttons">
-            <button [ngClass]="{'category-selected': category == currentCategory}" 
-                class="category-button" (click)="selectCategory(category)">
+            <button [ngClass]="{'category-selected': category == currentCategory}" class="category-button"
+                (click)="selectCategory(category)">
                 {{category}}
             </button>
         </div>
@@ -12,12 +12,8 @@
 
 
 <!-- Items -->
-<div fxLayout="row wrap" class="container" style="margin: 10px auto 70px auto;" >
-    <app-item fxFlex.gt-sm="33%" fxFlex.gt-xs="50%" fxFlex="50%"
-        *ngFor="let item of items"
-        [item]="item"
-        (selectItem)="selectItem($event)"
-        (addQuantity)="addQuantity($event)"
-        (removeQuantity)="removeQuantity($event)">
+<div fxLayout="row wrap" class="container" style="margin: 10px auto 70px auto;">
+    <app-item fxFlex.gt-sm="33%" fxFlex.gt-xs="50%" fxFlex="50%" *ngFor="let item of items" [item]="item"
+        (selectItem)="selectItem($event)" (addQuantity)="addQuantity($event)" (removeQuantity)="removeQuantity($event)">
     </app-item>
 </div>

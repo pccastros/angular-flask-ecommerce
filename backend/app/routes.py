@@ -25,7 +25,6 @@ def createOrder():
     # Validate JSON format
     if request.is_json:
         data = request.get_json()
-        print(data)
         order = {
             'customer': data['customer'],
             'items': data['items']

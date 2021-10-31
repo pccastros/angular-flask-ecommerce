@@ -1,12 +1,12 @@
-import { Component, Inject, OnInit} from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, Input } from '@angular/core';
+import { Item } from '../../models/items';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-details',
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.scss']
 })
-export class DetailComponent implements OnInit{
+export class DetailsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'image', 'price', 'quantity',  'tprice',];
   displayedColumns2: string[] = ['empty', 'empty', 'empty', 'empty', 'stTitle', 'stAmount'];
@@ -16,20 +16,22 @@ export class DetailComponent implements OnInit{
   subtotal: number;
   taxes: number;
   final: number;
+  totalQnty: number;
+  
+  @Input() total:number;
+  @Input() items: Item[] = [];
 
-  constructor(
-    public dialogRef: MatDialogRef<DetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
 
+  constructor() { }
 
   ngOnInit(): void {
-    this.subtotal = this.data.map(i => i.price * i.quantity).reduce((acc, value) => acc + value, 0);
+    this.subtotal = this.items.map(i => i.price * i.quantity).reduce((acc, value) => acc + value, 0);
     this.taxes = this.tax * this.subtotal
     this.final = this.subtotal + this.taxes;
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  getTotalQuantity(){
+    return this.items.map(i => i.quantity).reduce((acc, value) => acc + value, 0);
   }
 
 }

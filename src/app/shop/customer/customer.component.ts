@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Customer } from 'src/app/models/customer';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Item } from '../../models/items';
@@ -12,15 +12,14 @@ import { Router } from '@angular/router';
 })
 export class CustomerComponent implements OnInit{
   
-  powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
-  
   displayedColumns: string[] = ['id', 'name', 'price', 'quantity'];
-  
+
   customer: Customer = new Customer();
   customerForm!: FormGroup;
 
   @Input() total:number;
   @Input() items: Item[] = [];
+  @Output() finishOrder:EventEmitter<any> = new EventEmitter();
 
   constructor( private itemService:ItemService, private router:Router) {
 
@@ -52,14 +51,21 @@ export class CustomerComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log(this.customerForm.value)
+
+    console.log(this.customerForm.value.delivery)
+    this.customerForm.value.delivery = this.customerForm.value.delivery.toISOString().split('T')[0];
     let order = {
       customer: this.customerForm.value,
       items: this.items
     }
-    order.customer.date = new Date();
-    this.itemService.addOrder(order).subscribe(data => {
 
+    let date = (new Date()).toISOString().split('T')[0];
+    let hour = (new Date()).toISOString().split('T')[1].split('.')[0]
+    let time = date + ' ' + hour
+    order.customer.date = time;
+    
+    this.itemService.addOrder(order).subscribe(data => {
+      this.finishOrder.emit()
     })
 
   }

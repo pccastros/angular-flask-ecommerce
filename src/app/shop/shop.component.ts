@@ -14,7 +14,7 @@ export class ShopComponent implements OnInit {
   total = 0;
   quantity = 0;
   currentCategory: string = '';
-
+  finish = false;
   currentItems: Item[] = [];
   items: Item[] = [];
   categories: string[] = [];
@@ -61,6 +61,15 @@ export class ShopComponent implements OnInit {
       this.items[idx].quantity = 0;
     }
 
+  }
+
+  onFinishOrder(){
+    this.finish = true;
+    this.items = [];
+  }
+
+  getFinishState(){
+    return this.finish;
   }
 
   getTotal(){

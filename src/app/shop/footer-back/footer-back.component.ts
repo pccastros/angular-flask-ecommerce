@@ -2,13 +2,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
-  selector: 'app-total',
-  templateUrl: './total.component.html',
-  styleUrls: ['./total.component.scss']
+  selector: 'app-footer-back',
+  templateUrl: './footer-back.component.html',
+  styleUrls: ['./footer-back.component.scss']
 })
-export class TotalComponent implements OnInit {
+export class FooterBackComponent implements OnInit {
 
   @Input() total:number = 0;
+  @Input() finish:boolean = false;
   @Output() nextScreen:EventEmitter<any> = new EventEmitter();
   @Output() prevScreen:EventEmitter<any> = new EventEmitter();
 
@@ -26,5 +27,4 @@ export class TotalComponent implements OnInit {
   onBack(){
     this.prevScreen.emit()
   }
-
 }

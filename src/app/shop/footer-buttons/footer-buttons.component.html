@@ -6,13 +6,8 @@
                 Back
             </button>
         </div>
-
-        <div fxFlex="33" style="font-size: 25px; font-weight: bolder;">
-            {{total.toFixed(2) | currency}}
-        </div>
-
-        <div fxFlex="33" style="height: 100%">
-            
+        <div fxFlex="33" style="font-size: 25px; font-weight: bolder;"></div>
+        <div fxFlex="33" style="height: 100%">            
             <button mat-button (click)="onNext()" [disabled]="total == 0">
                 Next
                 <mat-icon>keyboard_arrow_right</mat-icon>

@@ -32,6 +32,10 @@ import { ShopComponent } from './shop/shop.component';
 import { DetailComponent } from './orders/detail/detail.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { DetailsComponent } from './shop/details/details.component';
+import { FooterBackComponent } from './shop/footer-back/footer-back.component';
+import { FooterButtonsComponent } from './shop/footer-buttons/footer-buttons.component';
+import { DashboardComponent } from './orders/dashboard/dashboard.component';
 
 const materialModules = [
   MatDatepickerModule,
@@ -51,7 +55,11 @@ const materialModules = [
     CustomerComponent,
     OrdersComponent,
     ShopComponent,
-    DetailComponent
+    DetailComponent,
+    DetailsComponent,
+    FooterBackComponent,
+    FooterButtonsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
