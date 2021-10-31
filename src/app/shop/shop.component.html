@@ -8,6 +8,7 @@
     <!-- CATEGORIES -->
     <app-categories *ngIf="screen == 0" 
       [categories]="categories"
+      [icons]="icons"
       (onSelectCategory)="onSelectCategory($event)"
       (nextScreen)="nextScreen($event)">
     </app-categories>

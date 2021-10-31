@@ -85,6 +85,7 @@
     <div class="submitted-message" *ngIf="formDir.submitted" style="text-align: center; font-size: 18px;">
         <p>{{ customerForm.value.name }}, thanks for your purchase! Your order is in progress.</p>
         <button mat-button color="primary" (click)="newOrder()">New Order</button>
+        <button mat-button color="primary" [routerLink]="['/orders']">View Orders</button>
 
     </div>
 

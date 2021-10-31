@@ -18,7 +18,8 @@ export class ShopComponent implements OnInit {
   currentItems: Item[] = [];
   items: Item[] = [];
   categories: string[] = [];
-
+  icons: string[] = [];
+  
    constructor( private itemService:ItemService) {
 
   }
@@ -27,6 +28,7 @@ export class ShopComponent implements OnInit {
     this.itemService.getItems().subscribe( data => { 
       this.items = data
       this.categories = Array.from(new Set(this.items.map(item => item.category)));
+      this.icons = Array.from(new Set(this.items.map(item => item.icon)));
     })
   }
   

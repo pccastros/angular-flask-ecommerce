@@ -1,13 +1,20 @@
 <div class="container">
-    <mat-toolbar class="toolbar">
-        <button mat-icon-button [routerLink]="['/']"><h3>PRIME SHOP</h3></button>
-        <span class="space"></span>
-      <button mat-icon-button [routerLink]="['/orders']">
-        <mat-icon class="icon">event_note</mat-icon>
-      </button>
-      <button mat-icon-button [routerLink]="['/']">
-        <mat-icon class="icon">shopping_cart</mat-icon>
-        <span class="qnty"> {{quantity}}</span>
-      </button>
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button [routerLink]="['/']">
+      <h3>PRIME SHOP</h3>
+    </button>
+    <span class="space"></span>
+    <button mat-icon-button [routerLink]="['/orders']">
+      <mat-icon class="icon">event_note</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/']">
+      <mat-icon class="icon">shopping_cart</mat-icon>
+      <div class="text-quantity">
+        <div *ngIf="quantity < 100" class="text-container">{{quantity}}</div>
+        <div *ngIf="quantity >= 100" class="text-container" style="font-size: 13px; line-height: 27px;">99+
+        </div>
+      </div>
+
+    </button>
   </mat-toolbar>
 </div>

@@ -2,6 +2,7 @@
 
 This project is a basic Ecommerce with `Angular` frontend and `Python - Flask` backend.
 
+![Alt Text](ecommerce.gif)
 
 ## Python virtual environment
 

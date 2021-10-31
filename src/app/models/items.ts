@@ -7,4 +7,5 @@ export class Item{
     selected:boolean = false;
     category:string = '';
     quantity:number = 0;
+    icon:string = '';
 }
